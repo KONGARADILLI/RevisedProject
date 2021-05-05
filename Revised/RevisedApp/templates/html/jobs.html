@@ -1,0 +1,27 @@
+{% extends 'html/base.html' %}
+{% block title %}Jobs{% endblock %}
+{% block content %}
+<div class="container-fluid mt-4">
+	<div class="row">
+		<div class="col col-md-4 ">
+			<div class="card shadow-lg">
+				<div class="card-body">
+					<h3>Add job</h3>
+					<form method="POST">
+						{% csrf_token %}
+						<table class="table table-borderless">
+							<tr>{{y.as_p}}</tr>
+							
+						</table>
+						<input type="submit" name="Submit" class="btn btn-success col-sm">
+                    </form>
+                </div>
+            </div>
+		</div>
+		<div class="col col-md ">
+			<div class="card shadow-lg">
+			<h3>Jobs table</h3>
+		</div>
+	</div>
+</div>
+{% endblock %}
