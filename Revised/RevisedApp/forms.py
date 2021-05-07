@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm,PasswordChangeForm
-from RevisedApp.models import User,Jobinfo
+from RevisedApp.models import User,Jobinfo,Coordinator
 
 class UsForm(UserCreationForm):
 	password1=forms.CharField(widget=forms.PasswordInput(attrs={"class":"form-control","placeholder":"password"}))
@@ -10,7 +10,16 @@ class UsForm(UserCreationForm):
 		fields=["username"]
 		widgets={
 		 "username":forms.TextInput(attrs={"class":"form-control","placeholder":"username"}),
+		}
 
+class Cordform(forms.ModelForm):
+	class Meta:
+		model= Coordinator
+		fields= ["cord_name","dept","phone_no"]
+		widgets={
+		 "cord_name":forms.TextInput(attrs={"class":"form-control","placeholder":"Enter your name"}),
+		"dept":forms.Select(attrs = {"class": "form-control",}),
+		"phone_no":forms.NumberInput(attrs = {"class": "form-control","placeholder":"Enter your Phone number","required":True}),
 		}
 
 class Usperm(forms.ModelForm):
@@ -43,9 +52,7 @@ class UpJobform(forms.ModelForm):
 		"eligible_percent":forms.TextInput(attrs={"class":"form-control","placeholder":"eligible percent"}),
 		"eligible_dept":forms.TextInput(attrs={"class":"form-control","placeholder":"eligible_dept"}),
 		"year_of_pass":forms.NumberInput(attrs={"class":"form-control","placeholder":"year_of_pass"}),
-		"last_date":forms.DateInput(attrs = {"class": "form-control",}),
-
-		# "com_image":forms.ImageField(attrs={"class":"form-control","placeholder":"com_image"}),
+		"last_date":forms.DateInput(attrs = {"class": "form-control","placeholder":"Last date to apply"},),
 		}
 
 class UtupForm(forms.ModelForm):

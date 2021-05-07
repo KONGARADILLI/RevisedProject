@@ -17,12 +17,14 @@
 					<td>{{forloop.counter}}</td>
 					<td>{{j.username}}</td>
 					<td>
-						{% if j.role == 3 %}
-						<span class="badge badge-pills badge-warning">Guest</span>
+						{% if j.username.is_superuser %}
+						<span class="badge badge-pills badge-warning">Admin</span>
+						{% elif j.role == 1 %}
+						<span class="badge badge-pills badge-warning">Coordinator</span>
 						{% elif j.role == 2 %}
 						<span class="badge badge-pills badge-warning">Student</span>
 						{% else %}
-						<span class="badge badge-pills badge-warning">Admin</span>
+						<span class="badge badge-pills badge-warning">Guest</span>
 						{% endif %}
 					<!-- {{j.role}}</ -->
 				</td>
