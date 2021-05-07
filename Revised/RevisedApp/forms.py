@@ -1,5 +1,5 @@
 from django import forms
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm,PasswordChangeForm
 from RevisedApp.models import User,Jobinfo
 
 class UsForm(UserCreationForm):
@@ -33,3 +33,43 @@ class Jobform(forms.ModelForm):
 		"job_role":forms.TextInput(attrs={"class":"form-control","placeholder":"Job Role"}),
 		"skills":forms.TextInput(attrs={"class":"form-control","placeholder":"Skills requried"}),
 		}
+
+class UpJobform(forms.ModelForm):
+	class Meta:
+		model= Jobinfo
+		fields= ["job_role","eligible_percent","eligible_dept","year_of_pass","last_date","com_image"]
+		widgets={
+		"job_role":forms.TextInput(attrs={"class":"form-control","placeholder":"Job role"}),
+		"eligible_percent":forms.TextInput(attrs={"class":"form-control","placeholder":"eligible percent"}),
+		"eligible_dept":forms.TextInput(attrs={"class":"form-control","placeholder":"eligible_dept"}),
+		"year_of_pass":forms.NumberInput(attrs={"class":"form-control","placeholder":"year_of_pass"}),
+		"last_date":forms.DateInput(attrs = {"class": "form-control",}),
+
+		# "com_image":forms.ImageField(attrs={"class":"form-control","placeholder":"com_image"}),
+		}
+
+class UtupForm(forms.ModelForm):
+	class Meta:
+		model=User
+		fields=["username","email","rollno","dob","year","dept","phone_no","percentage","backlogs","pass_year","address"]
+		widgets= {
+		"username":forms.TextInput(attrs = {"class": "form-control","placeholder":"Enter your name","required":True}),
+		"email":forms.EmailInput(attrs = {"class": "form-control","placeholder":"Enter your Email","required":True}),
+		"rollno":forms.TextInput(attrs = {"class": "form-control","placeholder":"Enter your Roll no","required":True}),
+		"dob":forms.DateInput(attrs = {"class": "form-control",}),
+		"year":forms.Select(attrs = {"class": "form-control",}),
+		"dept":forms.Select(attrs = {"class": "form-control",}),
+		"phone_no":forms.NumberInput(attrs = {"class": "form-control","placeholder":"Enter your Phone number","required":True}),
+		"percentage":forms.NumberInput(attrs = {"class": "form-control","placeholder":"Enter your Percentage","required":True}),
+		"backlogs":forms.NumberInput(attrs = {"class": "form-control","placeholder":"Enter your Backlogs","required":True}),
+		"pass_year":forms.NumberInput(attrs = {"class": "form-control","placeholder":"Enter your year of pass","required":True}),
+		"address":forms.TextInput(attrs = {"class": "form-control","placeholder":"Enter your address","required":True}),
+		}
+
+class ChpwdForm(PasswordChangeForm):
+	old_password=forms.CharField(widget=forms.PasswordInput(attrs={"class":"form-control","placeholder":"Enter your old password"}))
+	new_password1=forms.CharField(widget=forms.PasswordInput(attrs={"class":"form-control","placeholder":"Enter your new password"}))
+	new_password2=forms.CharField(widget=forms.PasswordInput(attrs={"class":"form-control","placeholder":"Enter your new confirmation password"}))
+	class Meta:
+		model=User
+		fields="__all__"

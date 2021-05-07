@@ -1,8 +1,8 @@
 from django.shortcuts import render,redirect
-from RevisedApp.forms import UsForm,Usperm,Jobform
+from RevisedApp.forms import UsForm,Usperm,Jobform,UpJobform,UtupForm,ChpwdForm
 from django.core.mail import EmailMessage
 from Revised import settings
-from RevisedApp.models import User
+from RevisedApp.models import User,Jobinfo
 
 # Create your views here.
 
@@ -19,7 +19,8 @@ def register(request):
 	return render(request,'html/register.html',{'t':y})
 
 def role(request):
-	return render(request,'html/mp.html')
+	mnp = Jobinfo.objects.all()
+	return render(request,'html/mp.html',{'t':mnp})
 
 def requestform(request):
 	if request.method == "POST":
@@ -56,5 +57,50 @@ def dashboard(request):
 	return render(request,'html/dashboard.html')
 
 def jobposts(request):
-	t=Jobform()
-	return render(request,'html/jobs.html',{'y':t})
+	w = Jobinfo.objects.all()
+	if request.method== "POST":
+		e = Jobform(request.POST)
+		if e.is_valid():
+			e.save()
+			return redirect('/jobs')	
+	e=Jobform()
+	return render(request,'html/jobs.html',{'z':e,'y':w})
+
+
+def editjobs(request,a):
+	t= Jobinfo.objects.get(id=a)
+	if request.method== "POST":
+		k= UpJobform(request.POST,instance=t)
+		if k.is_valid():
+			k.save()
+			return redirect('/jobs')
+	k2 = UpJobform(instance=t)
+	return render(request,'html/editjobs.html',{'b':k2})
+
+
+
+def profile(req):
+	return render(req,'html/profile.html')
+
+
+def updf(request):
+	if request.method == "POST":
+		v=UtupForm(request.POST,instance=request.user)
+		if v.is_valid():
+			v.save()
+			return redirect('/pro')
+	z=UtupForm(instance=request.user)
+	return render(request,'html/updateprofile.html',{'p':z})
+	
+
+def cgf(request):
+	if request.method == "POST":
+		c=ChpwdForm(request.user,data=request.POST)
+		if c.is_valid():
+			c.save()
+			return redirect('/lg')
+	c=ChpwdForm(user=request)
+	return render(request,'html/changepassword.html',{'p':c})
+
+def viewjob(request):
+	return render(request,'html/viewjob.html')
