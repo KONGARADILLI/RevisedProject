@@ -1,8 +1,6 @@
-
 <nav class="navbar navbar-expand-md bg-dark navbar-dark">
   <a class="navbar-brand" href="{% url 'home' %}">Campus Recruitment System</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-    <span class="navbar-toggler-icon"></span>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar"><span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="collapsibleNavbar">
     <ul class="navbar-nav">
@@ -15,37 +13,37 @@
       </li>
       <li class="nav-item">
         <a class="nav-link" href="{% url 'log' %}">Login/Register</a>
-      </li> 
+      </li>
       {% elif user.is_superuser %}
       <li class="nav-item">
         <a class="nav-link" href="{% url 'main' %}">Main Page</a>
-      </li> 
+      </li>
       <li class="nav-item">
         <a class="nav-link" href="{% url 'dash' %}">Dashboard</a>
-      </li> 
-       <li class="nav-item">
+      </li>
+      <li class="nav-item">
         <a class="nav-link" href="{% url 'job' %}">Job Posts</a>
-      </li> 
+      </li>
       <li class="nav-item">
         <a class="nav-link" href="{% url 'perm' %}">Permissions</a>
-      </li> 
-       <li class="nav-item">
+      </li>
+      <li class="nav-item">
         <a class="nav-link" href="{% url 'logo' %}">Logout</a>
-      </li> 
+      </li>
       {% elif user.role == 1%}
       <li class="nav-item">
         <a class="nav-link" href="{% url 'main' %}">Main Page</a>
-      </li> 
+      </li>
       <li class="nav-item">
         <a class="nav-link" href="{% url 'dash' %}">Dashboard</a>
-      </li> 
+      </li>
       <li class="nav-item">
         <a class="nav-link" href="{% url 'perm' %}">Student Info</a>
-      </li> 
+      </li>
       <li class="nav-item">
         <a class="nav-link" href="{% url 'main' %}">Job Info</a>
       </li>
-       <ul class="navbar-nav ml-auto" style="margin-right: 120px">
+      <ul class="navbar-nav ml-auto" style="margin-right: 120px">
         {% if not user.is_authenticated %}
         <li class="nav-item">
           <a class="nav-link" href="{% url 'log' %}"> Login</a>
@@ -59,45 +57,45 @@
             <a class="dropdown-item" href="{% url 'logo'%}">Logout</a>
           </div>
         </li>
-        {% endif %}
-      </ul>
- {% elif user.role == 2%}
-      <li class="nav-item">
-        <a class="nav-link" href="{% url 'main' %}">Student Main Page</a>
-      </li> 
-      <li class="nav-item">
-        <a class="nav-link" href="{% url 'dash' %}">Dashboard</a>
-      </li> 
-      <li class="nav-item">
-        <a class="nav-link" href="{% url 'main' %}">Job Info</a>
-      </li>
-       <ul class="navbar-nav ml-auto" style="margin-right: 120px">
-    {% if not user.is_authenticated %}
-     <li class="nav-item">
-      <a class="nav-link" href="{% url 'log' %}"> Login</a>
+      {% endif %}
+    </ul>
+    {% elif user.role == 2%}
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'main' %}">Student Main Page</a>
     </li>
-    {% else %}
-    <li class="dropdown">
-        <a type="button" class="nav-link dropdown-toggle" data-toggle="dropdown">{{user.username}}</a>
-  <div class="dropdown-menu">
-    <a class="dropdown-item" href="{% url 'cg' %}">change password</a>
-    <a class="dropdown-item" href="{% url 'profile' %}">Profile</a>
-    <a class="dropdown-item" href="{% url 'logo'%}">Logout</a>
-  </div>
-</li>
-{% endif %}
-  </ul>
-      {% else %}
-       <li class="nav-item">
-        <a class="nav-link" href="{% url 'main' %}">Main Page</a>
-      </li> 
-       <li class="nav-item">
-        <a class="nav-link" href="{% url 'request' %}">Request Form</a>
-      </li> 
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'dash' %}">Dashboard</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'main' %}">Job Info</a>
+    </li>
+    <ul class="navbar-nav ml-auto" style="margin-right: 120px">
+      <!-- {% if not user.is_authenticated %}
       <li class="nav-item">
-        <a class="nav-link" href="{% url 'logo' %}">Logout</a>
-      </li> 
-      {% endif %}   
+        <a class="nav-link" href="{% url 'log' %}"> Login</a>
+      </li>
+      {% else %} -->
+      <li class="dropdown">
+        <a type="button" class="nav-link dropdown-toggle" data-toggle="dropdown">{{user.username}}</a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="{% url 'cg' %}">change password</a>
+          <a class="dropdown-item" href="{% url 'profile' %}">Profile</a>
+          <a class="dropdown-item" href="{% url 'logo'%}">Logout</a>
+        </div>
+      </li>
+      <!-- {% endif %} -->
+    </ul>
+    {% else %}
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'main' %}">Main Page</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'request' %}">Request Form</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'logo' %}">Logout</a>
+    </li>
+    {% endif %}
     </ul>
   </div>  
 </nav>

@@ -31,6 +31,7 @@ class Usperm(forms.ModelForm):
 		 "role":forms.Select(attrs={"class":"form-control"}),
 		}
 
+
 class Jobform(forms.ModelForm):
 	class Meta:
 		model= Jobinfo

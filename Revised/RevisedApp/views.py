@@ -104,3 +104,10 @@ def cgf(request):
 
 def viewjob(request):
 	return render(request,'html/viewjob.html')
+
+# def deledata(req,id):
+# 	data=Jobinfo.objects.get(id=id)
+# 	if req.method=="POST":
+# 		data.delete()
+# 		return redirect('/jobs')
+# 	return render(req,'html/deletejob.html',{'sd':data})

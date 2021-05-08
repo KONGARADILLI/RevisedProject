@@ -18,12 +18,13 @@ class User(AbstractUser):
 	pass_year=models.IntegerField(null=True)
 	address=models.CharField(max_length=250,null=True)
 	r=[(1,'coordinator'),(2,'Student'),(3,'Guest')]
-	role=models.IntegerField(choices=r,default=2)
+	role=models.IntegerField(choices=r,default=3)
+
 
 
 class Coordinator(models.Model):
 	t=[('CSE','CSE'),('ECE','ECE'),('CIVIL','CIVIL'),('Mechanical','Mechanical'),('EEE','EEE'),('MBA','MBA')]
-	cord_name=models.CharField(max_length=10)
+	cord_name=models.CharField(max_length=10,null=True)
 	dept=models.CharField(choices=t,max_length=12,null=True)
 	phone_no=models.IntegerField(null=True)
 

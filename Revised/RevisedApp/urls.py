@@ -21,5 +21,7 @@ path('rst/',ad.PasswordResetView.as_view(template_name='html/resetpassword.html'
 path('rst_done/',ad.PasswordResetDoneView.as_view(template_name='html/resetpassworddone.html'),name="password_reset_done"),
 path('rst_confirm/<uidb64>/<token>/',ad.PasswordResetConfirmView.as_view(template_name='html/resetpasswordconfirm.html'),name='password_reset_confirm'),
 path('rst_cmplt/',ad.PasswordResetCompleteView.as_view(template_name='html/reset_password_complete.html'),name="password_reset_complete"),
-path('viewjob/',views.viewjob,name='view')
+path('viewjob/',views.viewjob,name='view'),
+# path('delt/<int:id>/',views.deledata,name='delete'),
+
 ]
