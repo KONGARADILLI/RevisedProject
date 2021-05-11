@@ -35,13 +35,14 @@ class Usperm(forms.ModelForm):
 class Jobform(forms.ModelForm):
 	class Meta:
 		model= Jobinfo
-		fields = ["title","location","salary","job_role","skills"]
+		fields = ["title","location","salary","job_role","skills","descrip"]
 		widgets={
 		"title":forms.TextInput(attrs={"class":"form-control","placeholder":"Enter company name"}),
 		"location":forms.TextInput(attrs={"class":"form-control","placeholder":"Job Location"}),
 		"salary":forms.NumberInput(attrs={"class":"form-control","placeholder":"Salary"}),
 		"job_role":forms.TextInput(attrs={"class":"form-control","placeholder":"Job Role"}),
 		"skills":forms.TextInput(attrs={"class":"form-control","placeholder":"Skills requried"}),
+		"descrip":forms.TextInput(attrs={"class":"form-control","placeholder":"Description"})
 		}
 
 class UpJobform(forms.ModelForm):
