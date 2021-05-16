@@ -19,8 +19,8 @@ def register(request):
 	return render(request,'html/register.html',{'t':y})
 
 def role(request):
-	mnp = Jobinfo.objects.all()
-	return render(request,'html/mp.html',{'t':mnp})
+	# mnp = Jobinfo.objects.all()
+	return render(request,'html/mp.html')
 
 def requestform(request):
 	if request.method == "POST":
@@ -111,3 +111,13 @@ def viewjob(request):
 # 		data.delete()
 # 		return redirect('/jobs')
 # 	return render(req,'html/deletejob.html',{'sd':data})
+
+
+def jobinfo(request):
+	a = Jobinfo.objects.all()
+	return render(request,'html/jobinfo.html',{'t':a})
+
+def studentinfo(request):
+	b = User.objects.filter(role=2)
+	#need to edit to only display the role == 1
+	return render(request,'html/studentinfo.html',{'u':b})

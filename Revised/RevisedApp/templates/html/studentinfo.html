@@ -1,0 +1,33 @@
+{% extends 'html/base.html' %}
+{% block title %}Student info{% endblock %}
+{% block content %}
+{% if user.is_superuser %}
+		<div class="container mt-5 mx-auto">
+		<div class="row">
+			<div class="col">
+				<h3>Student Info</h3>
+				{% for j in u %}
+				<div class="col col-md">
+					<div class="card my-2 mx-auto ">
+						
+						<img class="card-img-top" src="{{j.com_image.url}}" alt="Card image" style="height:40px;width:10%">
+						<div class="card-body">
+							<p>Name : {{j.username}}</p>
+							<p>Email : {{j.email}}</p>
+							<p>Rollno: {{j.rollno}}</p>
+							<p>Department : {{j.dept}}</p>
+							<div class="row">
+								<div class="col col-sm">
+							<a href="#" class="btn btn-info text-light">View</a>
+						</div>
+					</div>
+						</div>
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+</div>
+{% endif %}
+{% endblock %}
+

@@ -1,20 +1,8 @@
 {% extends 'html/base.html' %}
-{% block title %}Main{% endblock %}
+{% block title %}Job info{% endblock %}
 {% block content %}
-<div class="container mt-5">
-	<div class="jumbotron">
-		{% if user.is_superuser %}
-		<h3>Super User</h3>
-		{% elif user.role == 1%}
-		<h3>Coordinator</h3>
-		{% elif user.role == 2%}
-		<h3>Student</h3>
-		{% else %}
-		<h3>Guest</h3>
-		{% endif %}
-	</div>
-		{% if user.is_superuser %}
-	<!-- 	<div id="accordion">
+{% if user.is_superuser %}
+		<div id="accordion">
 		{% for j in t %}
 		<h3>{{j.title}}</h3>
 		<div class="row">
@@ -37,19 +25,7 @@
  {% endfor %}
 </div>
 
-
-
-</div> -->
-<div class="container mt-5">
-		<div class="row">
-			<div class="col col-sm">
-				<a href="{% url 'jinfo' %}" class="btn btn-info"><h3>Job info</h3></a>
-			</div>
-			<div class="col col-sm">
-				<a href="{% url 'stdinfo' %}" class="btn btn-info"><h3>Student info</h3></a>
-			</div>
-		</div>
-	</div>
+</div>
 {% elif user.role == 1 %}
 	<div class="container mt-5">
 		<div class="row">

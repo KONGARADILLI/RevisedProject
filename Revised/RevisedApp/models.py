@@ -41,3 +41,4 @@ class Jobinfo(models.Model):
 	last_date=models.DateField(null=True)
 	descrip=models.CharField(max_length=250)
 	com_image=models.ImageField(upload_to='Jobs/',default='123.jpg')
+

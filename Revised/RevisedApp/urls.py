@@ -23,5 +23,6 @@ path('rst_confirm/<uidb64>/<token>/',ad.PasswordResetConfirmView.as_view(templat
 path('rst_cmplt/',ad.PasswordResetCompleteView.as_view(template_name='html/reset_password_complete.html'),name="password_reset_complete"),
 path('viewjob/',views.viewjob,name='view'),
 # path('delt/<int:id>/',views.deledata,name='delete'),
-
+path('jobinfo/',views.jobinfo,name='jinfo'),
+path('studinfo/',views.studentinfo,name='stdinfo'),
 ]

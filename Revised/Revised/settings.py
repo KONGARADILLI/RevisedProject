@@ -129,10 +129,11 @@ LOGIN_REDIRECT_URL='main'
 EMAIL_USE_TLS=True
 EMAIL_HOST="smtp.gmail.com"
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'kongaradilli1681@gmail.com'
-EMAIL_HOST_PASSWORD= 'dilli@2151999'
+EMAIL_HOST_USER = 'aitstpttpo@gmail.com '
+EMAIL_HOST_PASSWORD= 'aitstpttpo@123'
 
 ADMINS = [('admin','dillikongara@gmail.com')] 
 
 MEDIA_URL = '/images/'
 MEDIA_ROOT=os.path.join(BASE_DIR,'RevisedApp/static/images/')
+
