@@ -2,7 +2,24 @@
 {% block title %}Student info{% endblock %}
 {% block content %}
 {% if user.is_superuser %}
-		<div class="container mt-5 mx-auto">
+<div class="container">
+  <h2>select dept</h2>
+  <div class="dropdown">
+    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu">
+      <input class="form-control" id="myInput" type="text" placeholder="Search..">
+      <li><a href="#">CSE</a></li>
+      <li><a href="#">ECE</a></li>
+      <li><a href="#">Civil</a></li>
+      <li><a href="#">Mechanical</a></li>
+      <li><a href="#">EEE</a></li>
+      <li><a href="#">MBA</a></li>
+    </ul>
+  </div>
+</div>
+
+		<!-- <div class="container mt-5 mx-auto">
 		<div class="row">
 			<div class="col">
 				<h3>Student Info</h3>
@@ -27,7 +44,76 @@
 			{% endfor %}
 		</div>
 	</div>
-</div>
+</div> -->
+<!-- <!DOCTYPE html>
+<html>
+    <head>
+        <title>admin</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    </head>
+    <style>
+        img {
+            border-radius: 55%;
+            margin-top: 50px;
+            margin-left: 150px;
+          }
+          .getdata_form{
+              
+             margin-top: 50px;
+
+          }
+          .formgetdata{
+              float: right;
+              margin-right: 650px;
+              margin-top: 60px;
+
+          }
+          #email,#department,#aggregate{
+              margin-bottom:30px ;
+              margin-top: 10px;
+          }
+         
+    </style>
+    <body>
+
+              
+            <div class="w3-card-4">
+                <div class="w3-container w3-brown">
+                  <h2>Get Student data</h2>
+                </div>
+                <form class="w3-container" method="POST">
+                	{% csrf_token %}
+                  <p>      
+                  <label class="w3-text-brown"><b>Enter Student Id:</b></label>
+                  <input class="w3-input w3-border w3-sand" name="student_id" type="text"></p>
+                
+                  <p>
+                  <button class="w3-btn w3-brown">Get Student Data</button></p>
+         
+                </form>
+              </div>
+              {% if rollno == user.request.rollno %}
+              <img src="jabiimage.jpeg" alt="Student Image" style="width:200px">
+
+              <div class="formgetdata">
+        
+                  <label class="w3-text-brown" for="email"><b>Email Id:</b></label><br>
+                    <input type="text" id="email" name="email"><br>
+                    {{u.email}}
+        
+                  <label class="w3-text-brown" for="department"><b>Department:</b></label><br>
+                    <input type="text" id="department" name="department"><br>
+        
+        
+                    <label class="w3-text-brown" for="aggregate"><b>Aggregate%:</b></label><br>
+                    <input type="text" id="aggregate" name="aggregate"><br>
+              </div>
+              {% endif %}
+
+
+    </body>
+</html>  -->
 {% endif %}
 {% endblock %}
 

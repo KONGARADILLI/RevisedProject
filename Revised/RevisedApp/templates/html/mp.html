@@ -43,10 +43,36 @@
 <div class="container mt-5">
 		<div class="row">
 			<div class="col col-sm">
-				<a href="{% url 'jinfo' %}" class="btn btn-info"><h3>Job info</h3></a>
-			</div>
+<!-- 				<a href="{% url 'jinfo' %}" class="btn btn-info"><h3>Job info</h3></a>
+ --><div class="dropdown">
+    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Co ordinator
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu">
+      <input class="form-control" id="myInput" type="text" placeholder="Search..">
+      <li><a href="#">CSE</a></li>
+      <li><a href="#">ECE</a></li>
+      <li><a href="#">Civil</a></li>
+      <li><a href="#">Mechanical</a></li>
+      <li><a href="#">EEE</a></li>
+      <li><a href="#">MBA</a></li>
+    </ul>
+  </div>
+ 			</div>
 			<div class="col col-sm">
-				<a href="{% url 'stdinfo' %}" class="btn btn-info"><h3>Student info</h3></a>
+			<!-- 	<a href="{% url 'stdinfo' %}" class="btn btn-info"><h3>Student info</h3></a> -->
+			<div class="dropdown">
+    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Student info
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu">
+      <input class="form-control" id="myInput" type="text" placeholder="Search..">
+      <li><a href="#">CSE</a></li>
+      <li><a href="#">ECE</a></li>
+      <li><a href="#">Civil</a></li>
+      <li><a href="#">Mechanical</a></li>
+      <li><a href="#">EEE</a></li>
+      <li><a href="#">MBA</a></li>
+    </ul>
+  </div>
 			</div>
 		</div>
 	</div>

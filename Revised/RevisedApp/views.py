@@ -117,7 +117,17 @@ def jobinfo(request):
 	a = Jobinfo.objects.all()
 	return render(request,'html/jobinfo.html',{'t':a})
 
+# def studentinfo(request):
+# 	if request.method == "POST":
+# 		sid= request.POST['student_id']
+# 		c = User(request.POST,instance=request.rollno)
+# 		if c.is_valid():
+# 			c.save()
+# 			return redirect('/studinfo')
+# 	b = User.objects.filter(role=2)
+# 	return render(request,'html/studentinfo.html',{'u':b})
+
+
 def studentinfo(request):
 	b = User.objects.filter(role=2)
-	#need to edit to only display the role == 1
 	return render(request,'html/studentinfo.html',{'u':b})
